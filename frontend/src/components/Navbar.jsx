@@ -4,6 +4,7 @@ import { IoFitnessOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import logo from "../assets/logotip.png";
+import ThemeToggleButton from './ThemeToggleButton';
 
 const Navbar = () => {
     return (
@@ -23,6 +24,7 @@ const Navbar = () => {
                         Search Personal Trainer
                     </Link>
                     <FaUserCircle className="profile-icon"/>
+                    <ThemeToggleButton/>
                 </div>
             </div>
         </div>
