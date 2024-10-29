@@ -14,7 +14,7 @@
     padding: 20px;
 }
 
-h1 {
+.h1-homepage {
     font-family: 'Rubik', sans-serif;
     font-weight: bold;
     font-size: 70px;
@@ -27,7 +27,7 @@ h1 {
     color: #785240; /* Rjava barva za "Perfect Personal Trainer" */
 }
 
-h2 {
+.h2-homepage {
     font-family: 'Karla', sans-serif;
     font-weight: bold;
     font-size: 30px;

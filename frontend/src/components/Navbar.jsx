@@ -19,7 +19,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="navbar-right">
-                    <Link to="/search-personal-trainer" className="navbar-link">
+                    <Link to="/search-trainers" className="navbar-link">
                         Search Personal Trainer
                     </Link>
                     <FaUserCircle className="profile-icon"/>
