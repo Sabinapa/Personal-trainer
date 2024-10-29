@@ -1,0 +1,47 @@
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    width: 90%;
+}
+
+.navbar-logo {
+    height: 77px;
+    width: auto;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-link {
+    color: #785240;
+    font-family: Inter, sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.navbar-link:hover {
+    color: #785240;
+}
+
+.profile-icon {
+    font-size: 2.0rem;
+    color: #785240;
+    cursor: pointer;
+}
