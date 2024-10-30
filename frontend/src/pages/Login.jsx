@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
+import {AuthContext} from "../context/AutoContext.jsx";
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const { login } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post('/api/trainers/login', { username, password });
             if (response.data.success) {
-                console.log("Login successful");
+                login(response.data.token);
             } else {
                 setError('Invalid username or password');
             }

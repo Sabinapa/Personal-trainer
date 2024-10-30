@@ -1,12 +1,14 @@
 import '../css/Navbar.css'
-
-import { IoFitnessOutline } from "react-icons/io5";
+import React, {useContext, useEffect, useState} from 'react';
 import { FaUserCircle } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import logo from "../assets/logotip.png";
 import ThemeToggleButton from './ThemeToggleButton';
+import {AuthContext} from "../context/AutoContext.jsx";
 
 const Navbar = () => {
+    const { isAuthenticated, logout } = useContext(AuthContext);
+
     return (
         <div className="header">
             <div className="navbar">
@@ -23,12 +25,27 @@ const Navbar = () => {
                     <Link to="/search-trainers" className="navbar-link">
                         Search Personal Trainer
                     </Link>
-                    <FaUserCircle className="profile-icon"/>
+                    {isAuthenticated ? (
+                        <>
+                            <FaUserCircle className="profile-icon"/>
+                            <button onClick={logout} className="logout-button">Logout</button>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/login" className="navbar-link">
+                                Login
+                            </Link>
+                            <Link to="/register" className="navbar-link">
+                                Register
+                            </Link>
+                        </>
+                    )}
                     <ThemeToggleButton/>
                 </div>
             </div>
         </div>
-    );
+    )
+        ;
 };
 
 export default Navbar;
