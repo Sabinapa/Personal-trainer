@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Homepage from "./pages/Homepage.jsx";
 import Searchpage from "./pages/Searchpage.jsx";
 import Register from './pages/Register.jsx';
+import Login from './pages/Login.jsx';
 import {ThemeProvider} from "./ThemeContext.jsx";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path='/' element={<Homepage/>} />
             <Route path='/search-trainers' element={<Searchpage/>} />
             <Route path='/register' element={<Register/>} />
+            <Route path='/login' element={<Login/>} />
         </Routes>
     </ThemeProvider>
 

@@ -5,6 +5,7 @@ import '../css/Register.css'
 
 const Register = () => {
     const [name, setName] = useState('');
+    const [lastname, setLastname] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -74,11 +75,10 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log({ name, username, email, password, description, age, city, postcode, priceRange, selectedWorkouts, selectedCertifications, gender, selectedLanguages,environment });
+        console.log({ name,lastname, username, email, password, description, age, city, postcode, priceRange, selectedWorkouts, selectedCertifications, gender, selectedLanguages,environment });
 
-        // Zberi podatke iz obrazca
         const formData = {
-            name, username, email, password,
+            name,lastname, username, email, password,
             description, age, city, postcode, priceRange,
             typeWorkout: selectedWorkouts,
             certifications: selectedCertifications,
@@ -87,8 +87,11 @@ const Register = () => {
             environment,};
 
         try {
-            const response = await axios.post('/api/trainers', formData);  // Pošlji POST zahtevo za shranjevanje podatkov
-            console.log("Trainer saved:", response.data);
+            const response = await axios.post('/api/trainers', formData);
+            if (response.data.success) {
+                localStorage.setItem('token', response.data.token);
+                console.log("Trainer saved and token received:", response.data);
+            }
         } catch (error) {
             console.error("Error saving trainer:", error);
         }
@@ -100,6 +103,7 @@ const Register = () => {
             <h2>Register as a Personal Trainer</h2>
             <div className="form-section">
                 <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required/>
+                <input type="text" placeholder="Lastname" value={lastname} onChange={(e) => setLastname(e.target.value)} required/>
                 <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}
                        required/>
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}

@@ -5,6 +5,10 @@ const trainerSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    lastname: {
+        type: String,
+        required: true,
+    },
     username: {
         type: String,
         required: true,
@@ -19,7 +23,7 @@ const trainerSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 6, // Določi minimalno dolžino gesla
+        minlength: 6,
     },
     description: {
         type: String,
