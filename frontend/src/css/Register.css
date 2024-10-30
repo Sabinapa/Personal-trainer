@@ -1,0 +1,101 @@
+.main {
+    width: 50%;
+    background-color: var(--background-color);
+    margin: 0 auto;
+    padding: 2rem;
+    margin-top: 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+body
+{
+    background-color: white;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--heading1);
+    margin-bottom: 1.5rem;
+}
+
+.form-section {
+    margin-bottom: 1.5rem;
+}
+
+input, textarea, select {
+    width: calc(100% - 20px);
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    display: block;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.gender-options, .environment-options, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-group label, .environment-options label, .gender-options label {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkbox-group label:hover, .environment-options label:hover, .gender-options label:hover {
+    background-color: #e2e2e2;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+select {
+    padding: 0.6rem;
+}
+
+.register-button {
+    width: 40%;
+    padding: 1rem;
+    background-color: var(--button-bg);
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 1.5rem auto;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.register-button:hover {
+    background-color: var(--button-bg);
+    transform: scale(1.02);
+}
+
+.register-button:active {
+    transform: scale(0.98);
+}

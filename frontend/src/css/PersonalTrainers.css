@@ -1,0 +1,69 @@
+
+.trainers-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background: var(--background-color);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--heading1);
+    margin-bottom: 2rem;
+}
+
+.trainers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.trainer-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    height: 250px;
+    margin-bottom: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.trainer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.trainer-icon {
+    flex-shrink: 0;
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 10rem;
+}
+
+.female-icon {
+    color: #e75480; /* Soft pink color for female icon */
+}
+
+.male-icon {
+    color: #4a90e2; /* Soft blue color for male icon */
+}
+
+.trainer-info {
+    align-self: flex-start;
+    align-content: start;
+}
+
+.trainer-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.trainer-info p {
+    margin: 10px 0 0;
+    color: #666;
+}

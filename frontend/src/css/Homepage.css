@@ -1,5 +1,8 @@
-
-.homepage {
+.homepage
+{
+    background-color: var(--background-color)
+}
+.naslovnica {
     display: flex;
     flex-direction: column;
     align-items: center;

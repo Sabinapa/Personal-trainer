@@ -1,10 +1,11 @@
 import '../css/Homepage.css'
+import PersonalTrainers from "../components/PersonalTrainers.jsx";
 
 
 const Homepage = () => {
     return (
-        <>
-            <div className="homepage">
+        <div className="homepage">
+            <div className="naslovnica">
                 <h1 className="h1-homepage">
                     <span className="white-text">Find Your </span>
                     <span className="brown-text">Perfect Personal Trainer</span>
@@ -16,10 +17,11 @@ const Homepage = () => {
                 </h2>
                 <button className="cta-button">FIND YOUR PERSONAL TRAINER</button>
             </div>
-            <div className="homepage-content">
+            <div>
                 <h1>MJAW</h1>
+                <PersonalTrainers/>
             </div>
-        </>
+        </div>
     );
 };
 export default Homepage;
