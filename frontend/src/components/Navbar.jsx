@@ -7,7 +7,7 @@ import ThemeToggleButton from './ThemeToggleButton';
 import {AuthContext} from "../context/AutoContext.jsx";
 
 const Navbar = () => {
-    const { isAuthenticated, logout } = useContext(AuthContext);
+    const { isAuthenticated,trainerID, logout } = useContext(AuthContext);
 
     return (
         <div className="header">
@@ -27,8 +27,9 @@ const Navbar = () => {
                     </Link>
                     {isAuthenticated ? (
                         <>
-                            <FaUserCircle className="profile-icon"/>
-                            <button onClick={logout} className="logout-button">Logout</button>
+                            <Link to={`/trainer/${trainerID}`} className="navbar-link">
+                                <FaUserCircle className="profile-icon"/>
+                            </Link>
                         </>
                     ) : (
                         <>

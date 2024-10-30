@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaUserAlt } from "react-icons/fa";
 import '../css/PersonalTrainers.css';
+import {Link} from "react-router-dom";
 
 const PersonalTrainers = () => {
     const [trainers, setTrainers] = useState([]);
@@ -34,8 +35,11 @@ const PersonalTrainers = () => {
                                 {trainer.gender === 'female' ? <FaUserAlt className="female-icon" /> : <FaUserAlt className="male-icon" />}
                             </div>
                             <div className="trainer-info">
-                                <h3>{trainer.name} {trainer.username}</h3>
-                                <p>{trainer.description.length > 100 ? trainer.description.substring(0, 100) + '...' : trainer.description}</p>
+                                <h3>{trainer.name} {trainer.lastname}</h3>
+                                <p>{trainer.description.length > 300 ? trainer.description.substring(0, 300) + '...' : trainer.description}</p>
+                                <Link to={`/trainer/${trainer._id}`}>
+                                    <button>Read more about {trainer.name}</button>
+                                </Link>
                             </div>
                         </div>
                     ))

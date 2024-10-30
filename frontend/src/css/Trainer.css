@@ -1,0 +1,43 @@
+.trainer-profile {
+    max-width: 80%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--background-color, #ffffff);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    text-align: left;
+    color: var(--text-color, #333);
+}
+
+
+
+.trainer-profile h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--heading1);
+    text-align: center;
+}
+
+.trainer-profile p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.trainer-profile p strong {
+    font-weight: bold;
+    color: var(--heading1, #555);
+}
+
+.trainer-profile-item {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.trainer-profile-item:last-child {
+    border-bottom: none;
+}

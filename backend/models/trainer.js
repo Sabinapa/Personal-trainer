@@ -46,13 +46,13 @@ const trainerSchema = new mongoose.Schema({
         ref: "PriceRange",
         required: false,
     },
-    typeWorkout: [{ type: Schema.Types.ObjectId, ref: "WorkoutType" }],
-    certifications: [{ type: Schema.Types.ObjectId, ref: "Certification" }],
+    typeWorkout: [{ type: Schema.Types.ObjectId, ref: "TypeWorkout" }],
+    certifications: [{ type: Schema.Types.ObjectId, ref: "Experience" }],
     gender: {
         type: String,
         required: true,
     },
-    language: [{ type: Schema.Types.ObjectId, ref: "Language" }],
+    language: [{ type: Schema.Types.ObjectId, ref: "Languages" }],
     environment: {
         type: String,
         required: true,

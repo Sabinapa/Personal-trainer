@@ -1,19 +1,23 @@
 import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import {AuthContext} from "../context/AutoContext.jsx";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post('/api/trainers/login', { username, password });
+            const { token, trainer } = response.data;
             if (response.data.success) {
-                login(response.data.token);
+                login(token, trainer);
+                navigate("/");
             } else {
                 setError('Invalid username or password');
             }
