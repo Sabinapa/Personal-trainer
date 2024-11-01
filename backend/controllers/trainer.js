@@ -12,19 +12,16 @@ export const loginTrainers = async (req, res) => {
     }
 
     try {
-        // Find trainer by username
         const trainer = await Trainer.findOne({ username });
         if (!trainer) {
             return res.status(401).json({ success: false, message: 'Invalid credentials' });
         }
 
-        // Compare password
         const isMatch = await bcrypt.compare(password, trainer.password);
         if (!isMatch) {
             return res.status(401).json({ success: false, message: 'Invalid credentials' });
         }
 
-        // Generate JWT token
         const token = jwt.sign({ trainerId: trainer._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.status(200).json({
@@ -65,7 +62,7 @@ export const getTrainer = async (req, res) => {
 
         res.status(200).json({ success: true, data: trainer });
     } catch (error) {
-        console.log("Error in fetching trainer: ", error.message);
+        console.log("Get trainer Error in fetching trainer: ", error.message);
         res.status(500).json({ success: false, message: "Server error" });
     }
 };
@@ -86,7 +83,6 @@ export const createTrainer = async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // Ustvari nov zapis za trenerja
         const newTrainer = new Trainer({
             name,
             lastname,
@@ -149,3 +145,65 @@ export const deleteTrainer = async (req, res) => {
         res.status(500).json({success: false, message:"Server error"});
     }
 }
+
+export const getFilteredTrainers = async (req, res) => {
+    try {
+        const query = {};
+
+        if (req.query.name) query.name = { $regex: req.query.name, $options: 'i' };
+        if (req.query.lastname) query.lastname = { $regex: req.query.lastname, $options: 'i' };
+        if (req.query.age) query.age = parseInt(req.query.age);
+        if (req.query.city) query.city = { $regex: req.query.city, $options: 'i' };
+        if (req.query.postcode) query.postcode = parseInt(req.query.postcode);
+        if (req.query.gender) query.gender = req.query.gender;
+        if (req.query.environment) query.environment = { $regex: req.query.environment, $options: 'i' };
+
+        if (req.query.priceRange) {
+            try {
+                if (mongoose.Types.ObjectId.isValid(req.query.priceRange)) {
+                    query.priceRange = new mongoose.Types.ObjectId(req.query.priceRange);
+                } else {
+                    return res.status(400).json({ message: 'Invalid priceRange ID' });
+                }
+            } catch (error) {
+                console.error('Error processing priceRange:', error);
+                return res.status(400).json({ message: 'Error processing priceRange', error });
+            }
+        }
+
+        if (req.query.typeWorkout) {
+            let typeWorkouts = req.query.typeWorkout;
+
+            if (typeof typeWorkouts === 'string') {
+                typeWorkouts = [typeWorkouts];
+            }
+
+            query.typeWorkout = { $all: typeWorkouts.map(id => new mongoose.Types.ObjectId(id)) };
+        }
+
+        if (req.query.certifications) {
+            let certifications = req.query.certifications;
+
+            if (typeof certifications === 'string') {
+                certifications = [certifications];
+            }
+
+            query.certifications = { $all: certifications.map(id => new mongoose.Types.ObjectId(id)) };
+        }
+
+        if (req.query.language) {
+            let languages = req.query.language;
+
+            if (typeof languages === 'string') {
+                languages = [languages];
+            }
+
+            query.language = { $all: languages.map(id => new mongoose.Types.ObjectId(id)) };
+        }
+
+        const trainers = await Trainer.find(query).populate(['priceRange', 'typeWorkout', 'certifications', 'language']);
+        res.status(200).json(trainers);
+    } catch (error) {
+        res.status(500).json({ message: 'Controler filter - Error fetching trainers', error });
+    }
+};

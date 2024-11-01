@@ -22,7 +22,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="navbar-right">
-                    <Link to="/search-trainers" className="navbar-link">
+                    <Link to="/trainer-search" className="navbar-link">
                         Search Personal Trainer
                     </Link>
                     {isAuthenticated ? (
