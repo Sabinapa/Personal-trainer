@@ -1,6 +1,6 @@
 .main {
     width: 50%;
-    background-color: var(--background-color);
+    background-color: white;
     margin: 0 auto;
     padding: 2rem;
     margin-top: 50px;
@@ -8,15 +8,8 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-body
-{
-    background-color: white;
-}
-
 h2 {
     text-align: center;
-    font-size: 2rem;
-    color: var(--heading1);
     margin-bottom: 1.5rem;
 }
 
@@ -37,8 +30,7 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    border-color: var(--heading1);
     outline: none;
 }
 
@@ -79,16 +71,8 @@ select {
 .register-button {
     width: 40%;
     padding: 1rem;
-    background-color: var(--button-bg);
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.25rem;
-    font-weight: bold;
-    cursor: pointer;
     display: block;
     margin: 1.5rem auto;
-    transition: background-color 0.3s, transform 0.2s;
 }
 
 .register-button:hover {
@@ -98,4 +82,10 @@ select {
 
 .register-button:active {
     transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .main{
+        width: 90%;
+    }
 }

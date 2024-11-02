@@ -2,6 +2,8 @@ import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import {AuthContext} from "../context/AutoContext.jsx";
 import {useNavigate} from "react-router-dom";
+import '../css/Login.css'
+
 
 const Login = () => {
     const [username, setUsername] = useState('');

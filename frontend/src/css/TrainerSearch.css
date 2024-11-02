@@ -6,6 +6,7 @@
     padding: 20px;
     box-sizing: border-box;
     background-color: var(--background-color);
+    margin-top: 20px
 }
 
 .trainer-search {
