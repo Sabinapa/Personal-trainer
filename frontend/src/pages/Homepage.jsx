@@ -18,7 +18,6 @@ const Homepage = () => {
                 <button className="cta-button">FIND YOUR PERSONAL TRAINER</button>
             </div>
             <div>
-                <h1>MJAW</h1>
                 <PersonalTrainers/>
             </div>
         </div>

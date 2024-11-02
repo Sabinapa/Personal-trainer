@@ -1,15 +1,12 @@
-
 .trainers-list {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
     background: var(--background-color);
 }
 
-h2 {
-    font-size: 2.5rem;
-    color: var(--heading1);
+h1 {
     margin-bottom: 2rem;
 }
 
@@ -25,12 +22,12 @@ h2 {
     align-items: center;
     background-color: #f9f9f9;
     border-radius: 10px;
-    padding: 20px;
-    height: 250px;
-    margin-bottom: 50px;
+    padding: 15px;
+    margin-bottom: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    gap: 15px;
 }
-
 
 .trainer-card:hover {
     transform: translateY(-10px);
@@ -39,31 +36,54 @@ h2 {
 
 .trainer-icon {
     flex-shrink: 0;
-    margin-right: 20px;
-    margin-top: 20px;
-    font-size: 10rem;
+    font-size: 7rem;
+    margin: 0;
 }
 
 .female-icon {
-    color: #e75480; /* Soft pink color for female icon */
+    color: #e75480;
 }
 
 .male-icon {
-    color: #4a90e2; /* Soft blue color for male icon */
+    color: #4a90e2;
 }
 
 .trainer-info {
-    align-self: flex-start;
-    align-content: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    text-align: left;
+    gap: 10px;
 }
 
 .trainer-info h3 {
     margin: 0;
-    font-size: 1.5rem;
     color: #333;
 }
 
 .trainer-info p {
     margin: 10px 0 0;
     color: #666;
+}
+
+.trainer-info button {
+    align-self: flex-start;
+    margin-top: 10px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+@media (max-width: 480px) {
+    .trainer-icon{
+        font-size: 5rem;
+    }
+
+    .trainer-info p{
+        margin: 0px
+    }
+
 }

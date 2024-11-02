@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import TrainerResults from './TrainerResults.jsx';
+import '../css/TrainerSearch.css'
 
 const TrainerSearch = () => {
     const [filters, setFilters] = useState({
@@ -45,7 +46,7 @@ const TrainerSearch = () => {
     }, []);
 
     const handleInputChange = (e) => {
-        const { name, value, options, multiple } = e.target;
+        const {name, value, options, multiple} = e.target;
 
         if (multiple && options) {
             // Če je `select` z več možnostmi (`multiple`), pridobi vse izbrane vrednosti
@@ -82,124 +83,128 @@ const TrainerSearch = () => {
     };
 
     return (
-        <div className="trainer-search">
-            <form onSubmit={handleSearch}>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={filters.name}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="text"
-                    name="lastname"
-                    placeholder="Last Name"
-                    value={filters.lastname}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="text"
-                    name="city"
-                    placeholder="City"
-                    value={filters.city}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="number"
-                    name="postcode"
-                    placeholder="Postcode"
-                    value={filters.postcode}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="number"
-                    name="age"
-                    placeholder="Age"
-                    value={filters.age}
-                    onChange={handleInputChange}
-                />
-                <select
-                    name="gender"
-                    value={filters.gender}
-                    onChange={handleInputChange}
-                >
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-                {/* Price Range Select */}
-                <select
-                    name="priceRange"
-                    value={filters.priceRange}
-                    onChange={handleInputChange}
-                >
-                    <option value="">Select Price Range</option>
-                    {priceRanges.map((range) => (
-                        <option key={range._id} value={range._id}>
-                            {range.label}
-                        </option>
-                    ))}
-                </select>
-                {/* Workout Type Select - Multiple Options */}
-                <select
-                    name="typeWorkout"
-                    multiple
-                    value={filters.typeWorkout}
-                    onChange={handleInputChange}
-                >
-                    <option value="">Select Workout Type</option>
-                    {workoutTypes.map((workout) => (
-                        <option key={workout._id} value={workout._id}>
-                            {workout.name}
-                        </option>
-                    ))}
-                </select>
+        <div className="trainers-page">
+            <div className="trainer-search">
+                <form onSubmit={handleSearch}>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={filters.name}
+                        onChange={handleInputChange}
+                    />
+                    <input
+                        type="text"
+                        name="lastname"
+                        placeholder="Last Name"
+                        value={filters.lastname}
+                        onChange={handleInputChange}
+                    />
+                    <input
+                        type="text"
+                        name="city"
+                        placeholder="City"
+                        value={filters.city}
+                        onChange={handleInputChange}
+                    />
+                    <input
+                        type="number"
+                        name="postcode"
+                        placeholder="Postcode"
+                        value={filters.postcode}
+                        onChange={handleInputChange}
+                    />
+                    <input
+                        type="number"
+                        name="age"
+                        placeholder="Age"
+                        value={filters.age}
+                        onChange={handleInputChange}
+                    />
+                    <select
+                        name="gender"
+                        value={filters.gender}
+                        onChange={handleInputChange}
+                    >
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    {/* Price Range Select */}
+                    <select
+                        name="priceRange"
+                        value={filters.priceRange}
+                        onChange={handleInputChange}
+                    >
+                        <option value="">Select Price Range</option>
+                        {priceRanges.map((range) => (
+                            <option key={range._id} value={range._id}>
+                                {range.label}
+                            </option>
+                        ))}
+                    </select>
+                    {/* Workout Type Select - Multiple Options */}
+                    <select
+                        name="typeWorkout"
+                        multiple
+                        value={filters.typeWorkout}
+                        onChange={handleInputChange}
+                    >
+                        <option value="">Select Workout Type</option>
+                        {workoutTypes.map((workout) => (
+                            <option key={workout._id} value={workout._id}>
+                                {workout.name}
+                            </option>
+                        ))}
+                    </select>
 
-                {/* Certifications Select - Multiple Options */}
-                <select
-                    name="certifications"
-                    multiple
-                    value={filters.certifications}
-                    onChange={handleInputChange}
-                >
-                    <option value="">Select Certification</option>
-                    {certifications.map((cert) => (
-                        <option key={cert._id} value={cert._id}>
-                            {cert.name}
-                        </option>
-                    ))}
-                </select>
+                    {/* Certifications Select - Multiple Options */}
+                    <select
+                        name="certifications"
+                        multiple
+                        value={filters.certifications}
+                        onChange={handleInputChange}
+                    >
+                        <option value="">Select Certification</option>
+                        {certifications.map((cert) => (
+                            <option key={cert._id} value={cert._id}>
+                                {cert.name}
+                            </option>
+                        ))}
+                    </select>
 
-                {/* Language Select - Multiple Options */}
-                <select
-                    name="language"
-                    multiple
-                    value={filters.language}
-                    onChange={handleInputChange}
-                >
-                    <option value="">Select Language</option>
-                    {languages.map((lang) => (
-                        <option key={lang._id} value={lang._id}>
-                            {lang.name}
-                        </option>
-                    ))}
-                </select>
+                    {/* Language Select - Multiple Options */}
+                    <select
+                        name="language"
+                        multiple
+                        value={filters.language}
+                        onChange={handleInputChange}
+                    >
+                        <option value="">Select Language</option>
+                        {languages.map((lang) => (
+                            <option key={lang._id} value={lang._id}>
+                                {lang.name}
+                            </option>
+                        ))}
+                    </select>
 
-                <select
-                    name="environment"
-                    value={filters.environment}
-                    onChange={handleInputChange}
-                >
-                    <option value="">Select Training Environment</option>
-                    <option value="gym">Gym</option>
-                    <option value="online">Online Coaching</option>
-                    <option value="hybrid">Hybrid</option>
-                </select>
+                    <select
+                        name="environment"
+                        value={filters.environment}
+                        onChange={handleInputChange}
+                    >
+                        <option value="">Select Training Environment</option>
+                        <option value="gym">Gym</option>
+                        <option value="online">Online Coaching</option>
+                        <option value="hybrid">Hybrid</option>
+                    </select>
 
-                <button type="submit">Search</button>
-            </form>
-            <TrainerResults trainers={trainers}/>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div className="trainer-results">
+                <TrainerResults trainers={trainers}/>
+            </div>
         </div>
     );
 };

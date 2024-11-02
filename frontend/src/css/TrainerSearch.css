@@ -1,0 +1,82 @@
+.trainers-page {
+    display: flex;
+    align-items: flex-start; /*align at the top left*/
+    gap: 30px; /* gap between form and result */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+}
+
+.trainer-search {
+    flex: 1;
+    max-width: 700px; /* Širina iskalnega obrazca, da ostane kompakten na levi strani */
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-search form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trainer-search input,
+.trainer-search select{
+    padding: 10px;
+    font-size: var(--p-size);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.trainer-search input:focus,
+.trainer-search select:focus {
+    border-color: #785240;
+    outline: none;
+}
+
+.trainer-results {
+    flex: 3;
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .trainer-search{
+        max-width: 40%;
+        padding: 10px;
+    }
+
+    .trainer-search form
+    {
+        gap: 8px
+    }
+
+    .trainer-results
+    {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .trainers-page {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .trainer-search {
+        width: 100%;
+        max-width: none;
+        padding: 15px;
+    }
+
+    .trainer-results {
+        width: 100%;
+        max-width: none;
+        padding: 15px;
+    }
+}

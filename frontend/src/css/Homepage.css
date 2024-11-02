@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 772px;
+    height: 972px;
     width: 100%;
     background-image: url('../assets/background-personal-trainer.png'); /* Pot do slike ali videa */
     background-size: cover;
@@ -27,7 +27,7 @@
     color: white;
 }
 .brown-text {
-    color: #785240; /* Rjava barva za "Perfect Personal Trainer" */
+    color: #785240;
 }
 
 .h2-homepage {
@@ -56,4 +56,28 @@
 .cta-button:hover {
     background-color: white; /* Temnejša odtenek ob hover */
     color: #785240;
+}
+
+@media (max-width: 768px) {
+
+    .h1-homepage{
+        font-size: 50px;
+    }
+
+    .h2-homepage{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .naslovnica
+    {
+        height: 567px;
+    }
+    .h1-homepage{
+        font-size: 40px;
+    }
+    .h2-homepage{
+        font-size: 20px;
+    }
 }

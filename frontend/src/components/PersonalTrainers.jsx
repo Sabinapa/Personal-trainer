@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaUserAlt } from "react-icons/fa";
@@ -6,6 +7,7 @@ import {Link} from "react-router-dom";
 
 const PersonalTrainers = () => {
     const [trainers, setTrainers] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const fetchTrainers = async () => {
@@ -24,19 +26,40 @@ const PersonalTrainers = () => {
         fetchTrainers();
     }, []);
 
+    useEffect(() => {
+        const checkScreenWidth = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkScreenWidth();
+        window.addEventListener('resize', checkScreenWidth);
+        return () => {
+            window.removeEventListener('resize', checkScreenWidth);
+        };
+    }, []);
+
     return (
         <div className="trainers-list">
-            <h2>Personal Trainers</h2>
+            <h1>Personal Trainers</h1>
             <div className="trainers-container">
                 {Array.isArray(trainers) && trainers.length > 0 ? (
                     trainers.map((trainer) => (
                         <div className="trainer-card" key={trainer._id}>
                             <div className="trainer-icon">
-                                {trainer.gender === 'female' ? <FaUserAlt className="female-icon" /> : <FaUserAlt className="male-icon" />}
+                                {trainer.gender === 'female' ? <FaUserAlt className="female-icon"/> :
+                                    <FaUserAlt className="male-icon"/>}
                             </div>
                             <div className="trainer-info">
                                 <h3>{trainer.name} {trainer.lastname}</h3>
-                                <p>{trainer.description.length > 300 ? trainer.description.substring(0, 300) + '...' : trainer.description}</p>
+                                <p>
+                                    {isMobile
+                                        ? (trainer.description.length > 200
+                                            ? trainer.description.substring(0, 200) + '...'
+                                            : trainer.description)
+                                        : (trainer.description.length > 300
+                                            ? trainer.description.substring(0, 300) + '...'
+                                            : trainer.description)
+                                    }
+                                </p>
                                 <Link to={`/trainer/${trainer._id}`}>
                                     <button>Read more about {trainer.name}</button>
                                 </Link>
