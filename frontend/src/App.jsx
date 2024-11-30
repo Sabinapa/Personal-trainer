@@ -10,6 +10,7 @@ import Login from './pages/Login.jsx';
 import {ThemeProvider} from "./context/ThemeContext.jsx";
 import Trainer from './pages/Trainer.jsx';
 import TrainerSearch from './components/TrainerSearch.jsx';
+import Footer from "./components/Footer.jsx";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/trainer/:trainerId" element={<Trainer />} />
                     <Route path="/trainer-search" element={<TrainerSearch/>}/>
                 </Routes>
+                <Footer/>
             </ThemeProvider>
         </AuthProvider>
 
