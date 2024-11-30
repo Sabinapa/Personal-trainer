@@ -1,25 +1,99 @@
-.trainer-card {
-    background: #f9f9f9;
+
+.trainer-card2 {
+    display: grid;
+    grid-template-columns: 300px auto; /* Levi stolpec za sliko, desni za informacije */
+    gap: 20px;
+    align-items: center;
+    background-color: #f9f9f9;
     border-radius: 10px;
+    padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 20px;
+}
+
+.trainer-icon2 {
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #eaeaea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trainer-image2 {
     width: 100%;
-    box-sizing: border-box;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.trainer-info2 {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    text-align: left;
 }
 
-.trainer-card h3 {
-    align-self: flex-start;
+.trainer-info2 h3 {
+    margin: 0;
+    font-size: 1.5rem;
 }
 
-.trainer-card .trainer-details {
+.trainer-info2 p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.trainer-details2 {
     display: flex;
+    gap: 15px;
     flex-wrap: wrap;
-    gap: 20px;
-    color: #666;
+    justify-content: flex-start;
+}
+
+.trainer-details2 p {
+    margin: 0;
+    font-size: 1rem;
 }
 
 
+@media (max-width: 480px) {
+    .trainer-card2 {
+        grid-template-columns: 1fr; /* Preklopi na en stolpec */
+        grid-template-rows: auto auto;
+        text-align: center;
+    }
 
+    .trainer-icon2 {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .trainer-info2 {
+        text-align: center;
+        align-items: center;
+    }
+
+    .trainer-info2 h3 {
+        font-size: 1.2rem;
+    }
+
+    .trainer-details2 {
+        justify-content: center;
+    }
+
+    .trainer-info2 button {
+        align-self: center;
+    }
+
+}
 
