@@ -4,12 +4,14 @@ import axios from 'axios';
 
 import '../css/Trainer.css';
 import {AuthContext} from "../context/AutoContext.jsx";
+import Logout from "../components/Logout.jsx";
 
 const Trainer = () => {
     const { isAuthenticated,trainerID, logout } = useContext(AuthContext);
     const {trainerId} = useParams();
     const [trainer, setTrainer] = useState(null);
     const navigate = useNavigate();
+    const [isModalOpen, setIsModalOpen] = useState(false);
     console.log("Trainer ID:", trainerId);
 
     useEffect(() => {
@@ -27,7 +29,11 @@ const Trainer = () => {
 
     const handleLogout = () => {
         logout();
-        navigate("/");
+        setIsModalOpen(true);
+        setTimeout(() => {
+            setIsModalOpen(false); // Zapri modal po 3 sekundah
+            navigate("/"); // Preusmeri na domačo stran
+        }, 3000);
     };
 
     if (!trainer) return <p>Loading...</p>;
@@ -79,6 +85,7 @@ const Trainer = () => {
                     <button onClick={handleLogout} className="logout-button">Logout</button>
                 )}
             </div>
+            {isModalOpen && <Logout />}
         </div>
     );
 };
